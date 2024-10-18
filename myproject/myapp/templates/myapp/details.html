@@ -17,27 +17,28 @@
   </head>
   <body>
     <div class="container mt-5">
-      <h1 class="text-center mb-4">Delete Product</h1>
-      <form method="POST">
-        {% csrf_token %}
-        <div class="alert alert-warning" role="alert">
-          <strong>Warning!</strong> Are you sure you want to delete this
-          product?
-        </div>
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">Price: ${{ product.price }}</p>
-            <p class="card-text">Description: {{ product.description }}</p>
+      <h1 class="display-4 text-center">{{ product.name }}</h1>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Price</h5>
+              <p class="card-text h2 text-success">${{ product.price }}</p>
+            </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-danger btn-block">
-          Confirm Deletion
-        </button>
-      </form>
-      <div class="mt-3">
-        <a href="{% url 'myapp:products' %}" class="btn btn-secondary btn-block"
-          >Cancel</a
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Description</h5>
+              <p class="card-text">{{ product.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="{% url 'myapp:products'  %}" class="btn btn-primary"
+          >Back to Product List</a
         >
       </div>
     </div>
